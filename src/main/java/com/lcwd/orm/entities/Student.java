@@ -2,6 +2,9 @@ package com.lcwd.orm.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "jpa_student")
 public class Student {
@@ -18,11 +21,23 @@ public class Student {
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Laptop laptop;
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Address> addressList = new ArrayList<>();
+
+
     public Student(int studentId, String studentName, String about, Laptop laptop) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.about = about;
         this.laptop = laptop;
+    }
+
+    public List<Address> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
     }
 
     public Student() {
