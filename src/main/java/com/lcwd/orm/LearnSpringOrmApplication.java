@@ -193,6 +193,10 @@ public class LearnSpringOrmApplication implements CommandLineRunner {
 //		allProductWhileLearningJPA.forEach(product -> System.out.println(product.getProductName()));
 //
 
-		productRepo.getAllActiveProducts().forEach(product -> System.out.println(product.getProductName()));
+		   productRepo.getAllActiveProducts().forEach(product -> System.out.println(product.getProductName()));
+
+
+
+		   //where it is being commit
 	}
 }
